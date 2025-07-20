@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-local
+    environment:
+      MYSQL_ROOT_PASSWORD: yajima244
+      MYSQL_DATABASE: myapp  # 必要なら初期DB作成
+    ports:
+      - "3307:3306"  # ホストの3307 → コンテナの3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: myadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"  # ホストの8080 → コンテナの80
+
+volumes:
+  mysql-data:
+
