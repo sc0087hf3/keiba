@@ -1,0 +1,37 @@
+keiba_predictor/
+├── config.py
+├── db.py
+├── main.py
+├── scraper/
+│   ├── __init__.py
+│   └── netkeiba.py
+├── weather/
+│   ├── __init__.py
+│   └── weather_api.py
+├── models/
+│   ├── __init__.py
+│   └── tables.py
+└── utils/
+    └── logger.py
+
+
+keiba-app/
+├── data/                  # 生データや中間データの保存
+│   ├── raw/               # スクレイピングしてきた生データ（JSON, CSVなど）
+│   └── processed/         # 加工・整形済みデータ
+├── db/                    # DB関連（マイグレーション, seed, 初期スキーマ）
+│   ├── schema.sql
+│   └── migrations/
+├── scripts/               # スクレイピングやデータ取得スクリプト
+│   ├── scrape_odds.py     # オッズ情報を取得
+│   ├── scrape_race.py     # レース情報（馬・枠・距離など）
+│   └── scrape_results.py  # 過去レース結果など
+├── notebooks/             # Jupyter Notebook でのデータ分析や試作
+│   └── explore_data.ipynb
+├── models/                # 機械学習・統計モデル
+│   └── predictor.py
+├── utils/                 # 汎用ユーティリティ関数
+│   ├── db_utils.py        # DB接続・クエリ補助
+│   └── data_cleaner.py    # データクレンジング
+├── requirements.txt      # Python依存パッケージ
+└── README.md
